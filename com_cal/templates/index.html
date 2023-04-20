@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
 	<title>{{tittle}}</title>
 </head>
 <body>
@@ -9,7 +10,7 @@
 		{% csrf_token %}
 		<label for="principal">Principal:</label>
 		<input type="text" name="principal" id="principal" value="{{ request.POST.principal }}"><br><br>
-		<label for="time">Time:</label>
+		<label for="time">Time in years:</label>
 		<input type="text" name="time" id="time" value="{{ request.POST.time }}"><br><br>
 		<label for="rate">Interest rate:</label>
 		<input type="text" name="rate" id="rate" value="{{ request.POST.rate }}"><br><br>
@@ -18,7 +19,9 @@
     
     
 	{% if interest %}
+	<div class="result-box">
 		<p>The compound interest is {{ interest }}</p>
+	</div>
 	{% endif %}
 </body>
 </html>
