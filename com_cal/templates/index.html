@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{tittle}}</title>
+</head>
+<body>
+	<h1>Compound Interest Calculator</h1>
+	<form method="post">
+		{% csrf_token %}
+		<label for="principal">Principal:</label>
+		<input type="text" name="principal" id="principal" value="{{ request.POST.principal }}"><br><br>
+		<label for="time">Time:</label>
+		<input type="text" name="time" id="time" value="{{ request.POST.time }}"><br><br>
+		<label for="rate">Interest rate:</label>
+		<input type="text" name="rate" id="rate" value="{{ request.POST.rate }}"><br><br>
+		<button type="submit">Calculate</button>
+	</form>
+    
+    
+	{% if interest %}
+		<p>The compound interest is {{ interest }}</p>
+	{% endif %}
+</body>
+</html>
